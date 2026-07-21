@@ -21,53 +21,51 @@
         <div class="name-form">
           <div class="form-control">
             <label for="fname">First Name <span>*</span></label>
-            <input type="text" id="fname" name="fname">
-            <span class="error-msg">This field is required</span>
+            <input type="text" id="fname" name="fname" aria-describedby="fname-error" autocomplete="given-name" required>
+            <span class="error-msg" id="fname-error">This field is required</span>
           </div>
 
           <div class="form-control">
             <label for="lname">Last Name <span>*</span></label>
-            <input type="text" id="lname" name="lname">
-            <span class="error-msg">This field is required</span>
+            <input type="text" id="lname" name="lname" aria-describedby="lname-error" autocomplete="family-name" required>
+            <span class="error-msg" id="lname-error">This field is required</span>
           </div>
         </div>
 
 
         <div class="form-control">
           <label for="email">Email Address <span>*</span></label>
-          <input type="email" id="email" name="email">
-          <span class="error-msg">Please enter a valid email address</span>
+          <input type="email" id="email" name="email" aria-describedby="email-error" autocomplete="email" required>
+          <span class="error-msg" id="email-error">Please enter a valid email address</span>
         </div>
 
-        <div class="form-control">
-          <label for="query-type">Query Type <span>*</span></label>
+        <fieldset class="form-control">
+          <legend>Query Type <span>*</span></legend>
           <div class="radio-wrapper">
             <div class="radio-group">
-              <input type="radio" id="general-enquiry" name="query-type" value="general-enquiry">
+              <input type="radio" id="general-enquiry" name="query-type" value="general-enquiry" required>
               <label for="general-enquiry">General Enquiry</label>
             </div>
-
             <div class="radio-group">
-              <input type="radio" id="support-request" name="query-type" value="support-request">
+              <input type="radio" id="support-request" name="query-type" value="support-request" required>
               <label for="support-request">Support Request</label>
             </div>
           </div>
-          <span class="error-msg">Please select a query type</span>
-        </div>
-        
+          <span class="error-msg" id="query-error">Please select a query type</span>
+        </fieldset>
         
         <div class="form-control form-message">
           <label for="message">Message <span>*</span></label>
-          <textarea name="message" id="message"></textarea>
-          <span class="error-msg">This field is required</span>
+          <textarea name="message" id="message" aria-describedby="message-error" required></textarea>
+          <span class="error-msg" id="message-error">This field is required</span>
         </div>
         
         <div class="form-control form-checkbox">
           <div class="consent-checkbox">
-            <input type="checkbox" id="consent-check" name="consent-check" value="consent">
+            <input type="checkbox" id="consent-check" name="consent-check" value="consent" aria-describedby="consent-error" required>
             <label for="consent-check">I consent to being contacted by the team <span>*</span></label>
           </div>
-          <span class="error-msg">To submit this form, please consent to being contacted</span>
+          <span class="error-msg" id="consent-error">To submit this form, please consent to being contacted</span>
         </div>
 
         <button type="submit" id="submit-btn">Submit</button>

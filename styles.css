@@ -16,12 +16,12 @@
 
 :root {
     --clr-primary-green-200: hsl(148, 38%, 91%);
-    --clr-primary-green-600: hsl(169, 82%, 27%);
-    --clr-primary-green-800: hsl(171, 54%, 16%);
-    --clr-primary-red: hsl(0, 66%, 54%);
+    --clr-primary-green-600: hsl(169, 82%, 18%);
+    --clr-primary-green-800: hsl(171, 54%, 12%);
+    --clr-primary-red: hsl(0, 66%, 35%);
 
     --clr-neutral-white: hsl(0, 0%, 100%);
-    --clr-grey-500: hsl(186, 15%, 59%);
+    --clr-grey-500: hsl(186, 15%, 45%);
     --clr-grey-900: hsl(187, 24%, 22%);
 }
 
@@ -73,7 +73,9 @@ main {
     gap: 5px;
     margin-block-end: 10px;
     position: relative;
+    border: none;
 }
+
 
 .contact-form__section h3 {
     font-size: 2.3rem;
@@ -95,12 +97,16 @@ main {
     }
 }
 
-label {
+label, .form-control legend {
     font-size: 1.3rem;
     color: var(--clr-grey-900);
 }
 
-label span {
+.form-control legend {
+    margin-block-end: 5px;
+}
+
+label span, .form-control legend span {
     color: var(--clr-primary-green-600);
 }
 
@@ -130,6 +136,7 @@ input:focus, input:active {
     padding: 10px;
     border: 1px solid var(--clr-grey-500);
     border-radius: 5px;
+    min-height: 44px;
 }
 
 .radio-group input[type="radio"], input[type="checkbox"] {
@@ -215,6 +222,7 @@ textarea {
     display: flex;
     align-items: center;
     gap: 10px;
+    min-height: 44px;
 }
 
 .consent-checkbox input[type="checkbox"] {
@@ -288,5 +296,17 @@ textarea {
 .form-control.error input[type="email"],
 .form-control.error textarea {
     border-color: var(--clr-primary-red);
+}
+
+input:focus, input:active, textarea:focus, textarea:active {
+    border-color: var(--clr-primary-green-600);
+    outline: 2px solid var(--clr-primary-green-600);
+    outline-offset: 1px;
+}
+
+.radio-group input[type="radio"]:focus-visible + label::before,
+.consent-checkbox input[type="checkbox"]:focus-visible + label::before {
+    outline: 2px solid var(--clr-primary-green-600);
+    outline-offset: 2px;
 }
 

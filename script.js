@@ -9,8 +9,10 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
         const formControl = element.closest('.form-control');
         if(isValid) {
             formControl.classList.remove('error');
+            element.setAttribute('aria-invalid', 'false');
         } else {
             formControl.classList.add('error');
+            element.setAttribute('aria-invalid', 'true');
             isFormValid = false;
         }
     }
@@ -38,7 +40,15 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
     const consentCheckbox = document.getElementById('consent-check');
     setValidationState(consentCheckbox, consentCheckbox.checked);
 
-    // 6. Final Decision
+    // 6. Error Focus Management
+    if(!isFormValid) {
+        const firstInvalidInput = document.querySelector('.form-control.error input, .form-control.error textarea');
+        if(firstInvalidInput) {
+            firstInvalidInput.focus();
+        }
+    }
+
+    // 7. Final Decision
     if(isFormValid) {
         alert('Form submitted succesfully!');
         // document.getElementById('contact-form').submit();
